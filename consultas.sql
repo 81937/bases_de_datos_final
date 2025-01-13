@@ -45,4 +45,3 @@ SELECT * FROM boleto CROSS JOIN sala;
 END //
 
 DELIMITER ;
-
