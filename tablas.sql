@@ -73,8 +73,8 @@ INSERT INTO clientes (codigo_cliente, nombre_completo, correo_electronico, numer
 DROP TABLE IF EXISTS boleto;
 CREATE TABLE IF NOT EXISTS boleto( 
 boleto_id INT UNSIGNED AUTO_INCREMENT NOT NULL,
-sala INT UNSIGNED NOT NULL,
-cliente varchar(63),
+funcion_id INT UNSIGNED NOT NULL,
+cliente_id INT,
 fecha_compra TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 numero_asiento INT UNSIGNED NOT NULL,
 precio decimal(7,3) NOT NULL,
@@ -82,9 +82,9 @@ PRIMARY KEY (boleto_id))
 ENGINE=MyISAM CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
-INSERT INTO boleto (sala, cliente, numero_asiento, precio)
+INSERT INTO boleto (funcion_id, cliente_id, numero_asiento, precio)
 VALUES
-(1, 'Maria Lopez', 10, 180.00), (2, 'Carlos Sanchez', 5, 250.75), (3, 'Ana Gomez', 20, 300.00);
+(1, 1, 10, 180.00), (2, 2, 5, 250.75), (3, 3, 20, 300.00), (4, NULL, 12, 600.00);
 
 
 --  Tabla: Carlos Alvarado --

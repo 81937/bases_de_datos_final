@@ -1,9 +1,19 @@
--- Intersect —-
+DELIMITER //
+
+DROP PROCEDURE IF EXISTS `consultas_manuel_munoz` //
+
+CREATE DEFINER=`root`@`%` PROCEDURE `consultas_manuel_munoz`()
+BEGIN
+
+-- Consultas --
+
+-- Intersect --
 SELECT * FROM boleto WHERE precio >= 200
 INTERSECT
 SELECT * FROM boleto WHERE sala <> 1;
 
 -- Union --
+
 SELECT sala, boleto_id FROM boleto WHERE precio >= 200
 UNION
 SELECT precio, numero_asiento FROM boleto WHERE sala <> 1;
@@ -29,6 +39,10 @@ SELECT * FROM boleto AS b
 LEFT JOIN
 pelicula AS p ON b.precio > p.duracion;
 
--- P.Cartesiano --
+--  P.Cartesiano -- 
 SELECT * FROM boleto CROSS JOIN sala;
+
+END //
+
+DELIMITER ;
 
